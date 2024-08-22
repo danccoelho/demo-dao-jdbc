@@ -10,6 +10,9 @@ import model.entities.Seller;
 
 public class Program {
 
+	/**
+	 * @param args
+	 */
 	public static void main(String[] args) {
 
 		SellerDao sellerDao = DaoFactory.createSellerDao();
@@ -31,10 +34,17 @@ public class Program {
 			System.out.println(s);
 		}
 		
-		System.out.println("\n=== TEST 4: seller insert ===");
-		Seller newSeller = new Seller("Joao.C", null, "joaoc@gmail.com", new Date(), 4000.0, department);
-		sellerDao.insert(newSeller);
-		System.out.println("Inserted! new Id = " + newSeller.getId());
+		//System.out.println("\n=== TEST 4: seller insert ===");
+		//Seller newSeller = new Seller("Joao.C", null, "joaoc@gmail.com", new Date(), 4000.0, department);
+		//sellerDao.insert(newSeller);
+		//System.out.println("Inserted! new Id = " + newSeller.getId());
+		
+		System.out.println("\n=== TEST 5: seller update ===");
+		seller = sellerDao.findById(1);
+		seller.setName("Geromel");
+		seller.setEmail("gerome@gmail.com");
+		sellerDao.update(seller);
+		System.out.println("Update completed");
 	}
 
 }
